@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import SearchWidget from 'SearchWidget';
+import SearchWidget from './SearchWidget';
+import Filter from './Filter';
 
 export default class Sidebar extends Component{
   constructor(){
@@ -9,6 +10,7 @@ export default class Sidebar extends Component{
     return (
       <aside className="col-md-4">
         <SearchWidget/>
+        <Filter/>
       </aside>
     )
   }

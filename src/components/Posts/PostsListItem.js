@@ -1,31 +1,29 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import Tags from './Tags';
+import convertTimestamp from '../../services/convertTimestamp';
 
 export default class PostsListItem extends Component{
   constructor(props){
     super(props);
   }
-  renderTag(tag){
-    return (
-      <span>
-        <a className="label label-default" href="#">
-          {tag}
-        </a>
-      </span>
-    )
-  }
   render(){
     return (
       <article>
         <header>
-          <h2><a href="#">{this.props.title}</a></h2>
+          <h2>
+            <Link to={'/post/'+this.props.title}>
+              {this.props.title}
+            </Link>
+          </h2>
           <p><small className="glyphicon glyphicon-user" /> by <a href="#">{this.props.author}</a></p>
-          <p><small className="glyphicon glyphicon-time" /> Posted on {this.props.postDate}</p>
+          <p><small className="glyphicon glyphicon-time" /> Posted on {convertTimestamp(this.props.date)}</p>
         </header>
         <p>{this.props.description}</p>
+        <br/>
         <footer className="clearfix">
           <p className="pull-left">
-            <b>Tags:</b>
-            {this.props.tags.map(this.renderTag)}
+            <Tags tags={this.props.tags}/>
           </p>
           <a className="btn btn-primary pull-right" href="#">Read More <i className="glyphicon glyphicon-chevron-right"/></a>
         </footer>

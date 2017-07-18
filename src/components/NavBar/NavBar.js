@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
+import {withRouter} from 'react-router';
 
 import Config from '../../config';
 
-export default class NavBar extends Component {
-  constructor(){
-    super();
+class NavBar extends Component {
+  constructor(props){
+    super(props);
     this.items = this.getItems()
   }
 
@@ -14,7 +16,13 @@ export default class NavBar extends Component {
 
   renderItem(item){
     return (
-      <li key={item.name.charAt(0)}><a href={item.link}>{item.name}</a></li>
+      <li key={item.name.charAt(0)}>
+        <NavLink
+          activeClassName={'active'}
+          to={item.link}>
+          {item.name}
+        </NavLink>
+      </li>
     )
   }
 
@@ -35,3 +43,5 @@ export default class NavBar extends Component {
     )
   }
 }
+
+export default withRouter(NavBar);

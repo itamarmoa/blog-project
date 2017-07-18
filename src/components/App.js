@@ -1,20 +1,23 @@
 import React from 'react';
-import {Route,Redirect} from 'react-router';
+import {Route, Redirect} from 'react-router';
 
-import NavBar from './NavBar/NavBar';
-import Posts from './Posts/Posts';
+import PostsPage from './Posts/PostsPage';
 import Admin from './Admin/Admin';
-
-import '../assets/css/main.scss';
+import NavBar from './NavBar/NavBar';
+import SinglePostPage from './Posts/SinglePostPage';
 
 class App extends React.Component {
+  constructor(){
+    super();
+  }
   render() {
     return (
       <div>
         <NavBar />
-        <Route path={'/posts'} component={Posts}/>
+        {/*<Redirect exact from={'/'} to={'/posts'}/>*/}
+        <Route path={'/posts'} component={PostsPage}/>
         <Route path={'/admin'} component={Admin}/>
-
+        <Route path={'/post/:title'} component={SinglePostPage}/>
       </div>
     )
   }
