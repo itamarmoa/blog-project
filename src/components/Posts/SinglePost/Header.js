@@ -19,9 +19,9 @@ export default class Header extends Component{
           <small className="glyphicon glyphicon-time"/>
           Posted on {convertTimestamp(this.props.date)}
         </p>
-        <p>
+        <div>
           <Tags tags={this.props.tags}/>
-        </p>
+        </div>
       </header>
     )
   }

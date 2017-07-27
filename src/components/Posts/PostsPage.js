@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import SideBar from '../Sidebar/Sidebar';
 
 import PostsFeed from './PostsFeed';
-import Footer from './Footer';
+import Footer from '../Footer/Footer';
 
 export default class PostsPage extends Component{
   constructor(props){

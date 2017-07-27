@@ -6,7 +6,7 @@ export default class CommentsList extends Component{
   }
   renderComment(comment){
     return (
-      <div className="media">
+      <div className="media" key={comment.user}>
         <a className="pull-left" href="#">
           <img className="media-object" src={comment.img} alt=""/>
         </a>

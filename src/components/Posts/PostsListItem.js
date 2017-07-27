@@ -22,10 +22,10 @@ export default class PostsListItem extends Component{
         <p>{this.props.description}</p>
         <br/>
         <footer className="clearfix">
-          <p className="pull-left">
+          <div className="pull-left">
             <Tags tags={this.props.tags}/>
-          </p>
-          <a className="btn btn-primary pull-right" href="#">Read More <i className="glyphicon glyphicon-chevron-right"/></a>
+          </div>
+          <Link className="btn btn-primary pull-right" to={'/post/'+this.props.title}>Read More <i className="glyphicon glyphicon-chevron-right"/></Link>
         </footer>
         <hr/>
       </article>

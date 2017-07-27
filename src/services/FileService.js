@@ -2,7 +2,7 @@ let $ = require("jquery");
 
 class FileService {
   fetchExternalHTML(fileName) {
-    return $.get(fileName)
+    return $.get('/'+fileName)
   }
 }
 

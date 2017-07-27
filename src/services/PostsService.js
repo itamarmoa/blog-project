@@ -7,6 +7,10 @@ class PostsService{
   getAllPosts(){
     return $.get(this.url)
   }
+  pullPostsFromLocalS(){
+    let posts = JSON.parse(localStorage.getItem("posts"));
+    return posts
+  }
   getPostsRange(from, to){
     this.getAllPosts().then(  );
     let allPosts = this.getAllPosts();
@@ -14,7 +18,7 @@ class PostsService{
     return sliced
   }
   getPost(title){
-    let posts = JSON.parse(localStorage.getItem("posts"));
+    let posts = this.pullPostsFromLocalS();
     let post = posts.find( (post)=> post.title === title );
     return post
   }

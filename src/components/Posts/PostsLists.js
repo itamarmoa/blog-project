@@ -6,7 +6,7 @@ export default class PostsLists extends Component {
     super(props);
   }
   renderItem(item){
-    return (<PostsListItem key={item.id} {...item}/>)
+    return (<PostsListItem key={item.title} {...item}/>)
   }
   render(){
     return (
