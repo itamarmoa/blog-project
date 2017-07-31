@@ -7,7 +7,7 @@ export default class PostsEditList extends Component {
     super(props);
   }
   renderItem(item){
-    return (<PostEditListItem key={item.id} {...item}/>)
+    return (<PostEditListItem key={item.title} {...item}/>)
   }
   render(){
     return (
