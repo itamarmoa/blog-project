@@ -17,7 +17,13 @@ router.route("/posts")
   .get((req, res) => {
     res.json(posts);
   });
+router.route("/posts/:pagenum")
+  .get((req, res) => {
+    let pageNum = req.param.pagenum;
+    console.log(posts.length);
+  });
 
+app.use('/data', express.static('../data'));
 
 app.use("/api",router);
 app.listen(9090);

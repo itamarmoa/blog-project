@@ -71,14 +71,18 @@ module.exports = {
       '/api': {
         target: 'http://localhost:9090',
         secure: false
+      },
+      '/data': {
+        target: 'http://localhost:9090',
+        secure: false
       }
     }
   },
 
   plugins: [
-    new CopyWebpackPlugin([
-      {from:'data',to:'data'}
-    ]),
+    // new CopyWebpackPlugin([
+    //   {from:'data',to:'data'}
+    // ]),
 
     new HtmlWebpackPlugin({
       template: "./src/index.html"
