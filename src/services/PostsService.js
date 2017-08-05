@@ -24,6 +24,8 @@ class PostsService{
         return $.get(this.url + '/?'+ CONST.AUTHOR + '=' + query)
       case CONST.TAG:
         return $.get(this.url + '/?'+ CONST.TAG + '=' + query)
+      case CONST.MONTH:
+        return $.get(this.url + '/?'+ CONST.MONTH + '=' + query)
     }
     return $.get(this.url)
   }

@@ -25,6 +25,9 @@ class PostsFeed extends Component{
     else if(this.query.author){
       this.props.getPosts(CONST.AUTHOR, this.query.author);
     }
+    else if(this.query.month){
+      this.props.getPosts(CONST.MONTH, this.query.month);
+    }
 
   }
   render(){

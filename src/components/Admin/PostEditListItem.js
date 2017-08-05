@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import convertTimestamp from '../../services/convertTimestamp';
+import {convertTimestamp} from '../../services/Dater';
 import {withRouter, NavLink} from 'react-router-dom';
 
 

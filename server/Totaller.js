@@ -1,3 +1,5 @@
+const {convert} = require('../src/services/Dater');
+
 function Totaller(posts,type) {
   let result = [];
   posts.map(
@@ -10,8 +12,11 @@ function Totaller(posts,type) {
             // }
           })
       }
+      else if(type === 'date'){
+        result.push(convert(post[type], 'year-month-name'));
+      }
       else{
-        result.push(post[type])
+        result.push(post[type]);
       }
     });
 

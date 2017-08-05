@@ -1,16 +1,16 @@
 function Counter(arr) {
-  let tags = [],
+  let result = [],
       prev;
 
   arr.sort();
   for ( let i = 0; i < arr.length; i++ ) {
     if ( arr[i] !== prev ) {
-      tags.push({
+      result.push({
         name: arr[i],
         occur: 1
       });
     } else {
-      tags.map((item)=>{
+      result.map((item)=>{
         if(item.name === arr[i]){
           item.occur ++
         }
@@ -18,6 +18,6 @@ function Counter(arr) {
     }
     prev = arr[i];
   }
-  return tags
+  return result
 }
 module.exports = Counter;

@@ -18,7 +18,10 @@ router.route("/posts")
     if(req.query.page){
       // Return posts by page
       let pageNum = req.query.page;
-      let pagePosts = posts.slice(0,3);
+      let postsLimit = 3;
+      let end = (pageNum * postsLimit);
+      let pagePosts = posts.slice((end - postsLimit) , end);
+
       return res.json(pagePosts)
     }
     if(req.query.tag){

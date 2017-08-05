@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Tags from './Tags';
-import convertTimestamp from '../../services/convertTimestamp';
+import {convertTimestamp} from '../../services/Dater';
 
 export default class PostsListItem extends Component{
   constructor(props){

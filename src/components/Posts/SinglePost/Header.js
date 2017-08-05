@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import convertTimestamp from '../../../services/convertTimestamp';
+import {convertTimestamp} from '../../../services/Dater';
 import Tags from '../Tags';
 
 export default class Header extends Component{

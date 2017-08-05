@@ -6,4 +6,4 @@ const Config = {
   dateFormat: "MMMM Do ,YYYY"
 };
 
-export default Config;
+module.exports =  Config;
