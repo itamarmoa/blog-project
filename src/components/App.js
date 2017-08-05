@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        {/*<Redirect exact from={'/'} to={'/posts'}/>*/}
+        <Route exact path="/" render={()=> <Redirect to="/posts"/>}/>
         <Route path={'/posts'} component={PostsPage}/>
         <Route path={'/admin'} component={AdminPage}/>
         <Route path={'/post/:title'} component={SinglePostPage}/>

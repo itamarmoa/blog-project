@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TagList from './TagList';
+import AuthorsList from './AuthorsList';
 
 export default class Filter extends Component{
   constructor(){
@@ -15,46 +17,9 @@ export default class Filter extends Component{
             Show All Posts
           </a>
         </div>
+        <TagList/>
 
-        <h4><small className="glyphicon glyphicon-tag"></small> Category</h4>
-        <div className="list-group">
-          <a href="#" className="list-group-item">
-            <span className="badge">4</span>
-            AngularJS
-          </a>
-          <a href="#" className="list-group-item">
-            <span className="badge">2</span>
-            Grunt
-          </a>
-          <a href="#" className="list-group-item">
-            <span className="badge">6</span>
-            JavaScript
-          </a>
-          <a href="#" className="list-group-item">
-            <span className="badge">2</span>
-            jQuery
-          </a>
-          <a href="#" className="list-group-item">
-            <span className="badge">2</span>
-            Tools
-          </a>
-        </div>
 
-        <h4><small className="glyphicon glyphicon-user"></small> Author</h4>
-        <div className="list-group">
-          <a href="#" className="list-group-item">
-            <span className="badge">2</span>
-            Alex Ilyaev
-          </a>
-          <a href="#" className="list-group-item">
-            <span className="badge">2</span>
-            Amit Choukroun
-          </a>
-          <a href="#" className="list-group-item">
-            <span className="badge">4</span>
-            Ilan Cohen
-          </a>
-        </div>
 
         <h4><small className="glyphicon glyphicon-time"></small> Month</h4>
         <div className="list-group">

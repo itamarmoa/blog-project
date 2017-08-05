@@ -8,7 +8,8 @@
     "build": "NODE_ENV=production webpack -p --progress",
     "prebuildwin": "npm prune&npm install",
     "buildwin": "set NODE_ENV=production&webpack -p --progress",
-    "webpack-dev-server": "webpack-dev-server"
+    "webpack-dev-server": "webpack-dev-server",
+    "node-start": "nodemon server/app.js"
   },
   "dependencies": {
     "bootstrap": "3.3.1",
@@ -23,6 +24,8 @@
     "marked": "0.3.5",
     "moment": "2.18.1",
     "node-sass": "4.5.3",
+    "nodemon": "1.11.0",
+    "query-string": "5.0.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-redux": "5.0.5",

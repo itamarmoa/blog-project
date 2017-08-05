@@ -2,15 +2,23 @@ import * as ACTION from '../actions/index';
 import PostsService from './PostsService';
 import FileService from './FileService';
 
-
-export function pullPosts(){
+export function getPosts(by, query){
   return dispatch =>{
-    dispatch({type: ACTION.GET_POSTS_REQUEST});
+    dispatch({type:ACTION.GET_POSTS_REQUEST});
 
-    PostsService.getAllPosts()
-      .then(posts => dispatch({ type: ACTION.GET_POSTS_RESPONSE, posts }));
+    PostsService.getPosts(by, query)
+      .then(posts => dispatch({ type: ACTION.GET_POSTS_RESPONSE, posts}));
   }
 }
+
+// export function pullPosts(){
+//   return dispatch =>{
+//     dispatch({type: ACTION.GET_POSTS_REQUEST});
+//
+//     PostsService.getAllPosts()
+//       .then(posts => dispatch({ type: ACTION.GET_POSTS_RESPONSE, posts }));
+//   }
+// }
 
 export function getPost(title){
   return dispatch =>{

@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import PostsService from '../../services/PostsService';
+import {connect} from 'react-redux';
 import SideBar from '../Sidebar/Sidebar';
 import Footer from '../Footer/Footer';
 import PostsEditList from './PostsEditList';
+import {pullPosts} from '../../services/actions';
 
-export default class AdminPage extends Component{
-  constructor(){
-    super();
-    this.posts = PostsService.pullPostsFromLocalS();
+
+class AdminPage extends Component{
+  constructor(props){
+    super(props);
+    if(props.posts.length === 0 || props.posts === undefined)
+      this.props.getAllPosts();
   }
   render(){
     return (
@@ -15,7 +18,7 @@ export default class AdminPage extends Component{
         <div className="row">
           <section className="col-md-8">
             <h2 className="page-header">Edit posts</h2>
-            <PostsEditList posts={this.posts}/>
+            <PostsEditList posts={this.props.posts}/>
           </section>
           <SideBar/>
         </div>
@@ -25,3 +28,17 @@ export default class AdminPage extends Component{
     )
   }
 }
+
+function mapStateToProps(state){
+  return {
+    posts: state.posts
+  }
+}
+function mapDispatchToProps(dispatch){
+  return {
+    getAllPosts: ()=> dispatch(pullPosts())
+  }
+}
+
+let connected = connect(mapStateToProps,mapDispatchToProps)(AdminPage);
+export default connected;
