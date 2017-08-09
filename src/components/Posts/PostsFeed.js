@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter,Redirect} from 'react-router-dom';
 
+import queryString from 'query-string';
+import * as CONST from '../../constants';
 
 import PostsList from './PostsLists';
 import Pagger from './Pagger';
@@ -20,8 +22,13 @@ class PostsFeed extends Component{
       return (
         <section className="col-md-8">
           <h2 className="page-header">Showing {this.props.posts.length} posts</h2>
-          <PostsList posts={this.props.posts}/>
-          <Pagger/>
+          <PostsList
+            posts={this.props.posts}
+          />
+          <Pagger
+            values={this.props.sidebar}
+            current={queryString.parse(this.props.location.search).page}
+          />
         </section>
       )
     }
@@ -35,7 +42,8 @@ class PostsFeed extends Component{
 
 function mapStateToProps(state){
   return {
-    posts: state.posts
+    posts: state.posts,
+    sidebar: state.sidebar
   }
 }
 

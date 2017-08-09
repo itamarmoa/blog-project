@@ -8,7 +8,7 @@ import Thunk from 'redux-thunk';
 const state = {
   posts: [],
   sidebar: {
-    total: null,
+    totalPosts: null,
     tags: [],
     authors: [],
     months: []
