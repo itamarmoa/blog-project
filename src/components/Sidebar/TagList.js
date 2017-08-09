@@ -1,16 +1,25 @@
 import React, {Component} from 'react';
+import {withRouter, NavLink} from 'react-router-dom';
 
 export default class TagList extends Component{
   constructor(props){
     super(props);
-    this.items = [{"name":"ADII","occur":4},{"name":"Grunt","occur":2},{"name":"JavaScript","occur":6},{"name":"Tools","occur":2},{"name":"jQuery","occur":2}];
   }
   renderItem(tag){
+    let search = ('?tag='+tag.name);
     return (
-      <a href={'?tag='+tag.name} className="list-group-item" key={tag.name}>
+      <NavLink
+        exact
+        to={{
+          search
+        }}
+        className="list-group-item"
+        key={tag.name}
+        isActive={(match, location)=> location.search === search}
+      >
         <span className="badge">{tag.occur}</span>
         {tag.name}
-      </a>
+      </NavLink>
     )
   }
   render(){
@@ -18,7 +27,7 @@ export default class TagList extends Component{
       <div>
         <h4><small className="glyphicon glyphicon-tag" /> Category</h4>
         <div className="list-group">
-          {this.items.map(this.renderItem)}
+          {this.props.tags.map(this.renderItem)}
         </div>
       </div>
     )

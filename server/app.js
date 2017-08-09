@@ -4,6 +4,7 @@ let app = express();
 const posts = require('./posts');
 const Counter = require('./Counter');
 const Totaller = require('./Totaller');
+const Dater = require('../src/services/Dater');
 
 let router = express.Router();
 
@@ -16,10 +17,14 @@ router.route("/posts")
       return res.json(post);
     }
     if(req.query.page){
-      // Return posts by page
-      let pageNum = req.query.page;
+      let pageValue = req.query.page;
+      // Checks if to return all posts
+      if(pageValue === "all"){
+        return res.json(posts)
+      }
+      // Return posts by page number
       let postsLimit = 3;
-      let end = (pageNum * postsLimit);
+      let end = (pageValue * postsLimit);
       let pagePosts = posts.slice((end - postsLimit) , end);
 
       return res.json(pagePosts)
@@ -36,11 +41,33 @@ router.route("/posts")
       let pagePosts = posts.filter(item => item.author === author);
       return res.json(pagePosts);
     }
+    if(req.query.month){
+      // Return posts by month
+      let month = req.query.month;
+      let pagePosts = posts.filter(item => Dater.convert(item.date,'year-month-name') === month);
+      return res.json(pagePosts);
+    }
     next()
   })
   .get((req, res) => {
     // Return all posts
     res.json(posts);
+  });
+
+router.route('/posts/list/')
+  .get((req, res, next)=>{
+    let tags = Counter(Totaller(posts, 'tags'));
+    let authors = Counter(Totaller(posts, 'author'));
+    let months = Counter(Totaller(posts, 'date'));
+    let totalPosts = posts.length;
+    let result = {
+      totalPosts,
+      tags,
+      authors,
+      months
+    };
+
+    return res.json(result)
   });
 
 router.route('/posts/list/:type')

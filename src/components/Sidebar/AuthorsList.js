@@ -1,16 +1,24 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 
 export default class AuthorsList extends Component{
   constructor(props){
     super(props);
-    this.items = [{"name":"Alex Ilyaev","occur":2},{"name":"Amit Choukroun","occur":2},{"name":"Ilan Cohen","occur":4}];
   }
   renderItem(item){
+    let search = '?author='+item.name;
     return (
-      <a href={'?author='+item.name} className="list-group-item" key={item.name}>
+      <NavLink
+        to={{
+          search
+        }}
+        className="list-group-item"
+        isActive={(match, location)=> location.search === search}
+        key={item.name}
+      >
         <span className="badge">{item.occur}</span>
         {item.name}
-      </a>
+      </NavLink>
     )
   }
 
@@ -19,7 +27,7 @@ export default class AuthorsList extends Component{
       <div>
         <h4><small className="glyphicon glyphicon-user"/> Author</h4>
         <div className="list-group">
-          {this.items.map(this.renderItem)}
+          {this.props.authors.map(this.renderItem)}
         </div>
       </div>
     )

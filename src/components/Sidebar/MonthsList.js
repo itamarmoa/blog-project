@@ -1,28 +1,33 @@
 import React, {Component} from 'react';
-import {convert} from '../../services/Dater';
+import {NavLink} from 'react-router-dom';
 
 export default class MonthsList extends Component{
   constructor(props){
     super(props);
-    this.items = [{"name":"2014 December","occur":4},{"name":"2015 January","occur":4}];
   }
   renderItem(item){
+    let search = '?month='+item.name;
     return (
-      <div>
-        <a href={'?month='+item.name} className="list-group-item">
+        <NavLink
+          to={{
+            search
+          }}
+          className="list-group-item"
+          key={item.name}
+          isActive={(match, location)=> location.search === search}
+        >
           <span className="badge">{item.occur}</span>
           {item.name}
-        </a>
-      </div>
+        </NavLink>
     )
   }
 
   render(){
     return (
       <div>
-        <h4><small className="glyphicon glyphicon-time"/> Month</h4>
+        <h4><small className="glyphicon glyphicon-time"/>Month</h4>
         <div className="list-group">
-          {this.items.map(this.renderItem)}
+          {this.props.months.map(this.renderItem)}
         </div>
       </div>
     )

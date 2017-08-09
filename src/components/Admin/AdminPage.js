@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import SideBar from '../Sidebar/Sidebar';
 import Footer from '../Footer/Footer';
 import PostsEditList from './PostsEditList';
-import {pullPosts} from '../../services/actions';
+import {getPosts} from '../../services/actions';
 
 
 class AdminPage extends Component{
@@ -36,7 +36,7 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
   return {
-    getAllPosts: ()=> dispatch(pullPosts())
+    getAllPosts: ()=> dispatch(getPosts())
   }
 }
 

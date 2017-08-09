@@ -2,6 +2,16 @@ import * as ACTION from '../actions/index';
 import PostsService from './PostsService';
 import FileService from './FileService';
 
+
+export function getSidebarValues(){
+  return dispatch =>{
+    dispatch({type:ACTION.GET_SIDEBAR_VALUES_REQUEST});
+
+    PostsService.getSideBarValues()
+      .then(values => dispatch({ type: ACTION.GET_SIDEBAR_VALUES_RESPONSE, values}));
+  }
+}
+
 export function getPosts(by, query){
   return dispatch =>{
     dispatch({type:ACTION.GET_POSTS_REQUEST});
@@ -11,28 +21,13 @@ export function getPosts(by, query){
   }
 }
 
-// export function pullPosts(){
-//   return dispatch =>{
-//     dispatch({type: ACTION.GET_POSTS_REQUEST});
-//
-//     PostsService.getAllPosts()
-//       .then(posts => dispatch({ type: ACTION.GET_POSTS_RESPONSE, posts }));
-//   }
-// }
-
 export function getPost(title){
   return dispatch =>{
     dispatch({type: ACTION.GET_CURRENT_POST_REQUEST});
 
-    // When it will be async
     PostsService.getPost(title)
       .then(post => dispatch({ type: ACTION.GET_CURRENT_POST_RESPONSE, post }));
 
-    // Sync get
-    // let post = PostsService.getPost(title);
-    // if(post){
-    //   dispatch({ type: ACTION.GET_CURRENT_POST_RESPONSE, post })
-    // };
   }
 }
 

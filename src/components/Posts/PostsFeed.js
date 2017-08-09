@@ -1,34 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
-import queryString from 'query-string';
-import * as CONST from '../../constants';
+import {withRouter,Redirect} from 'react-router-dom';
+
 
 import PostsList from './PostsLists';
 import Pagger from './Pagger';
-import {pullPosts,getPosts} from '../../services/actions';
 
 class PostsFeed extends Component{
   constructor(props){
     super(props);
-    this.query = queryString.parse(props.location.search);
-    console.log(this.query);
-    // this.props.getAllPosts();
   }
   componentDidMount(){
-    if(!this.query.tag && !this.query.author){
-      this.props.getPosts();
+    if(!this.props.location.search){
+      this.props.history.push('/posts/?page=1');
     }
-    else if(this.query.tag){
-      this.props.getPosts(CONST.TAG, this.query.tag);
-    }
-    else if(this.query.author){
-      this.props.getPosts(CONST.AUTHOR, this.query.author);
-    }
-    else if(this.query.month){
-      this.props.getPosts(CONST.MONTH, this.query.month);
-    }
-
   }
   render(){
     if(this.props.posts){
@@ -50,16 +35,9 @@ class PostsFeed extends Component{
 
 function mapStateToProps(state){
   return {
-    posts: state.posts,
-    currentPost: state.currentPost
-  }
-}
-function mapDispatchToProps(dispatch){
-  return {
-    getAllPosts: ()=> dispatch(pullPosts()),
-    getPosts: (by, query)=> dispatch(getPosts(by, query))
+    posts: state.posts
   }
 }
 
-let connected = connect(mapStateToProps,mapDispatchToProps)(PostsFeed);
+let connected = connect(mapStateToProps,null)(PostsFeed);
 export default withRouter(connected);

@@ -7,19 +7,22 @@ import Config from '../../config';
 class NavBar extends Component {
   constructor(props){
     super(props);
-    this.items = this.getItems()
+    this.items = this.getItems();
   }
-
   getItems(){
     return Config.menuItems;
   }
-
   renderItem(item){
     return (
-      <li key={item.name.charAt(0)}>
+      <li key={item.name}>
         <NavLink
-          activeClassName={'active'}
-          to={item.link}>
+          exact
+          to={item.link}
+          activeStyle={{
+            color: '#fff'
+          }}
+          isActive={(match, location)=> location.pathname == item.link.pathname}
+        >
           {item.name}
         </NavLink>
       </li>

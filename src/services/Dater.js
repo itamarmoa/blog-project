@@ -18,7 +18,17 @@ function convert(timestamp, type) {
         return date.format("YYYY MMMM");
       case 'year':
         return date.format("YYYY");
+      case 'unix':
+        return Date.parse(timestamp);
     }
 }
+function getMonth(timestamp){
+  let date = new Date (timestamp);
+  return (date.getMonth()+1)
+}
 
-module.exports = {convert,convertTimestamp};
+module.exports = {
+  convert,
+  getMonth,
+  convertTimestamp
+};

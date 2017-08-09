@@ -9,25 +9,24 @@ class PostsService{
   getAllPosts(){
     return $.get(this.url)
   }
-  getPostsRange(from, to){
-    this.getAllPosts().then(  );
-    let allPosts = this.getAllPosts();
-    let sliced = allPosts.slice(from, to);
-    return sliced
-  }
   getPost(title){
     return $.get(this.url + '/?title='+ title);
   }
   getPosts(by, query){
     switch(by){
+      case CONST.PAGE:
+        return $.get(this.url + '/?'+ CONST.PAGE + '=' + query);
       case CONST.AUTHOR:
-        return $.get(this.url + '/?'+ CONST.AUTHOR + '=' + query)
+        return $.get(this.url + '/?'+ CONST.AUTHOR + '=' + query);
       case CONST.TAG:
-        return $.get(this.url + '/?'+ CONST.TAG + '=' + query)
+        return $.get(this.url + '/?'+ CONST.TAG + '=' + query);
       case CONST.MONTH:
-        return $.get(this.url + '/?'+ CONST.MONTH + '=' + query)
+        return $.get(this.url + '/?'+ CONST.MONTH + '=' + query);
     }
     return $.get(this.url)
+  }
+  getSideBarValues(){
+    return $.get(this.url + '/list/');
   }
 }
 
