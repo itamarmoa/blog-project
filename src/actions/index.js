@@ -6,3 +6,5 @@ export const GET_CURRENT_POST_HTML_REQUEST = "get-current-post-html-request";
 export const GET_CURRENT_POST_HTML_RESPONSE = "get-current-post-html-response";
 export const GET_SIDEBAR_VALUES_REQUEST = "get-sidebar-values-request";
 export const GET_SIDEBAR_VALUES_RESPONSE = "get-sidebar-values-response";
+export const GET_CURRENT_POST_MD_REQUEST = "get-current-post-md-request";
+export const GET_CURRENT_POST_MD_RESPONSE = "get-current-post-md-response";

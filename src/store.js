@@ -15,7 +15,10 @@ const state = {
   },
   currentPost: {
     header: null,
-    content: ""
+    content: {
+      html: "",
+      md: ""
+    }
   }
 };
 

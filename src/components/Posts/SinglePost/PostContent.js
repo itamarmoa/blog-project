@@ -9,7 +9,7 @@ export default class PostContent extends Component{
   render(){
     return (
           <section>
-            {renderHTML(this.props.content)}
+            {renderHTML(this.props.content.html)}
           </section>
         )
   }

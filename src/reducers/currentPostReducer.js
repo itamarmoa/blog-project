@@ -17,9 +17,22 @@ function htmlCurrentPostReducer(state = "", action) {
   return state
 }
 
+function mdCurrentPostReducer(state = "", action) {
+  switch (action.type){
+    case ACTION.GET_CURRENT_POST_MD_RESPONSE:
+      return action.content
+  }
+  return state
+}
+
+let contentReducers = combineReducers({
+  html: htmlCurrentPostReducer,
+  md: mdCurrentPostReducer
+});
+
 let currentPostReducer = combineReducers({
   header: currentPostReducerHeader,
-  content: htmlCurrentPostReducer
+  content: contentReducers
 });
 
 export default currentPostReducer;

@@ -35,9 +35,20 @@ export function getHTML(fileName){
   return dispatch =>{
     dispatch({type:ACTION.GET_CURRENT_POST_HTML_REQUEST});
 
-    FileService.fetchExternalHTML(fileName)
+    FileService.fetchExternalFile(fileName)
       .then(
         content => dispatch({type:ACTION.GET_CURRENT_POST_HTML_RESPONSE, content})
+      );
+  }
+}
+
+export function getMD(fileName){
+  return dispatch =>{
+    dispatch({type:ACTION.GET_CURRENT_POST_MD_REQUEST});
+
+    FileService.fetchExternalFile(fileName)
+      .then(
+        content => dispatch({type:ACTION.GET_CURRENT_POST_MD_RESPONSE, content})
       );
   }
 }

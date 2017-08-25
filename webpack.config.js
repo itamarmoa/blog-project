@@ -18,7 +18,7 @@ module.exports = {
       // Allow `require`ing JSON files as objects
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.js$/,
