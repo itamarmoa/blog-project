@@ -6,7 +6,7 @@ export default class ContentEditor extends Component{
     super(props);
     this.state = {
       postMd: ""
-    }
+    };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
   componentWillUpdate(nextProps){
