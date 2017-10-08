@@ -23,18 +23,20 @@ class PostsFeed extends Component{
         <section className="col-md-8">
           <h2 className="page-header">Showing {this.props.posts.length} posts</h2>
           <PostsList
-            posts={this.props.posts}
+            posts={this.props.posts.docs}
           />
           <Pagger
-            values={this.props.sidebar}
-            current={queryString.parse(this.props.location.search).page}
+            totalPosts={this.props.posts.total}
+            limit={this.props.posts.limit}
+            // totalPages={this.props.posts.pages}
+            current={this.props.posts.page}
           />
         </section>
       )
     }
     return (
       <section className="col-md-8">
-        <h2 className="page-header">Loading</h2>
+        <h2 className="page-header">Loading...</h2>
       </section>
     )
   }

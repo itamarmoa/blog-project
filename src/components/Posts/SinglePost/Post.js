@@ -23,8 +23,8 @@ class Post extends Component{
         img: "http://placehold.it/64x64"
       }
     ]
-    if(this.props.postHeader === null || props.params.title !== this.props.postHeader.title){
-      this.props.getPost(props.params.title);
+    if(this.props.postHeader === null || props.params.id !== this.props.postHeader._id){
+      this.props.getPost(props.params.id);
     }
   }
   componentWillUpdate(nextProps){
@@ -59,7 +59,7 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
   return{
-    getPost: (title)=> dispatch(getPost(title)),
+    getPost: (id)=> dispatch(getPost(id)),
     getPostHTML: (fileName)=> dispatch(getHTML(fileName))
   }
 }

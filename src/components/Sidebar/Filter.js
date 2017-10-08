@@ -9,7 +9,7 @@ class Filter extends Component{
     super(props);
   }
   render(){
-    let searchAllPosts = "?page=all";
+    let searchAllPosts = "";
     return (
       <div className="well">
         <h3>Filter Posts</h3>

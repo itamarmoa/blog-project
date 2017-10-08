@@ -15,11 +15,11 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-          <Route exact path="/" render={()=> <Redirect to="/posts/?page=1"/>}/>
+          {/*<Route exact path="/" render={()=> <Redirect to="/posts/?page=1"/>}/>*/}
           <Route path={'/posts'} component={PostsPage}/>
           <Route path={'/admin'} component={AdminPage}/>
-          <Route path={'/post/:title'} component={SinglePostPage}/>
-          <Route path={'/edit/post/:title'} component={EditPage}/>
+          <Route path={'/post/:id'} component={SinglePostPage}/>
+          <Route path={'/edit/post/:id'} component={EditPage}/>
       </div>
     )
   }

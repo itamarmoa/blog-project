@@ -6,13 +6,19 @@ export default class PostsLists extends Component {
     super(props);
   }
   renderItem(item){
-    return (<PostsListItem key={item.title} {...item}/>)
+    return (<PostsListItem key={item._id} {...item}/>)
   }
   render(){
-    return (
-      <div>
-        {this.props.posts.map(this.renderItem)}
-      </div>
-    )
+    console.log(this.props.posts)
+    if(Array.isArray(this.props.posts)){
+      return (
+        <div>
+          {this.props.posts.map(this.renderItem)}
+        </div>
+      )
+    }
+    else {
+      return (<div></div>)
+    }
   }
 }

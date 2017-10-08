@@ -7,9 +7,11 @@ export default class PostsEditList extends Component {
     super(props);
   }
   renderItem(item){
-    return (<PostEditListItem key={item.title} {...item}/>)
+    return (<PostEditListItem key={item.title} {...item}/>);
   }
   render(){
+    // console.log(this.props.posts);
+    // const postsList = this.props.posts.map(this.renderItem);
     return (
       <table className="table table-bordered table-hover table-striped postsTable">
         <thead>
@@ -37,8 +39,13 @@ export default class PostsEditList extends Component {
         </thead>
         <tbody>
         {this.props.posts.map(this.renderItem)}
+        {console.log(this.props.posts)}
         </tbody>
       </table>
     )
   }
 }
+
+PostsEditList.defaultProps = {
+  posts: []
+};

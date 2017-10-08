@@ -21,11 +21,11 @@ export function getPosts(by, query){
   }
 }
 
-export function getPost(title){
+export function getPost(id){
   return dispatch =>{
     dispatch({type: ACTION.GET_CURRENT_POST_REQUEST});
 
-    PostsService.getPost(title)
+    PostsService.getPost(id)
       .then(post => dispatch({ type: ACTION.GET_CURRENT_POST_RESPONSE, post }));
 
   }

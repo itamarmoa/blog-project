@@ -6,8 +6,11 @@ export default class Pagger extends Component{
     super();
   }
   buttonGen(type){
-    let totalPosts = parseInt(this.props.values.totalPosts);
-    let currentPage = parseInt(this.props.current);
+    console.log(this.props.totalPosts)
+    let totalPosts = parseInt(this.props.totalPosts),
+        currentPage = parseInt(this.props.current),
+        totalPages = parseInt(this.props.totalPages);
+
 
     switch (type){
       case "back":

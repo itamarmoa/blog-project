@@ -26,7 +26,7 @@ class Sidebar extends Component{
   getInfo(query){
     if(!query.tag && !query.author && !query.month){
       if(query.page === "all")
-        this.props.getPosts();
+        this.props.getPosts(CONST.LIMIT, 99);
       this.props.getPosts(CONST.PAGE,query.page);
     }
     else if(query.tag){

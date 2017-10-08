@@ -7,6 +7,7 @@ export default class Header extends Component{
     super(props);
   }
   render(){
+    console.log(this.props)
     return (
       <header>
         <h1 className="page-header">{this.props.title}</h1>

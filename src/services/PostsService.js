@@ -5,12 +5,13 @@ class PostsService{
   constructor(){
     // this.url = '../../data/posts.json';
     this.url = '/api/posts';
+    this.singleUrl = '/api/post';
   }
   getAllPosts(){
     return $.get(this.url)
   }
-  getPost(title){
-    return $.get(this.url + '/?title='+ title);
+  getPost(id){
+    return $.get(this.singleUrl + '/' + id);
   }
   getPosts(by, query){
     switch(by){

@@ -12,11 +12,11 @@ export default class PostsListItem extends Component{
       <article>
         <header>
           <h2>
-            <Link to={'/post/'+this.props.title}>
+            <Link to={'/post/'+this.props._id}>
               {this.props.title}
             </Link>
           </h2>
-          <p><small className="glyphicon glyphicon-user" /> by <a href="#">{this.props.author}</a></p>
+          <p><small className="glyphicon glyphicon-user" /> by <a href="#">{this.props.author.name}</a></p>
           <p><small className="glyphicon glyphicon-time" /> Posted on {convertTimestamp(this.props.date)}</p>
         </header>
         <p>{this.props.description}</p>
@@ -25,7 +25,7 @@ export default class PostsListItem extends Component{
           <div className="pull-left">
             <Tags tags={this.props.tags}/>
           </div>
-          <Link className="btn btn-primary pull-right" to={'/post/'+this.props.title}>Read More <i className="glyphicon glyphicon-chevron-right"/></Link>
+          <Link className="btn btn-primary pull-right" to={'/post/'+this.props._id}>Read More <i className="glyphicon glyphicon-chevron-right"/></Link>
         </footer>
         <hr/>
       </article>

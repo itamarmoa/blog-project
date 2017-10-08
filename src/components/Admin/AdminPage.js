@@ -9,7 +9,7 @@ import {getPosts} from '../../services/actions';
 class AdminPage extends Component{
   constructor(props){
     super(props);
-    if(props.posts.length === 0 || props.posts === undefined)
+    if(props.posts === undefined)
       this.props.getAllPosts();
   }
   render(){
@@ -18,7 +18,7 @@ class AdminPage extends Component{
         <div className="row">
           <section className="col-md-8">
             <h2 className="page-header">Edit posts</h2>
-            <PostsEditList posts={this.props.posts}/>
+            <PostsEditList posts={this.props.posts.docs}/>
           </section>
           <SideBar/>
         </div>
